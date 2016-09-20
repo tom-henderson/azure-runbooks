@@ -23,11 +23,6 @@ $localGatewayName = 'THX-GW-Local'
 $hostName = 'thx.no-ip.org'
 $localGatewayIP   = [system.net.dns]::GetHostByName($hostName).AddressList.IPAddressToString
 
-If ($WebhookData -ne $null) {
-    Write-Output "Received WebHook Data:"
-    Write-Output $WebHookData
-}
-
 Write-Output "Checking IP address of $localGatewayName"
 
 $localGateway = Get-AzureRmLocalNetworkGateway -Name $localGatewayName -ResourceGroupName $resourceGroup
